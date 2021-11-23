@@ -10,6 +10,9 @@ app.use('/images',express.static(__dirname + 'images'));
 
 const dataPath = './data/dinos.json';
 
+app.get('/', (req,res) => {
+        res.status(200).send('Welcome to dino app');
+});
 app.get('/api/dinos', (req,res) => {
     fs.readFile(dataPath,'utf8',(err,data)=>{
         if(err){
