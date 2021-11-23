@@ -1,7 +1,7 @@
 const express = require('express');
 const fs = require('fs');
 const app = express();
-
+var cors = require('cors');
 app.use(express.urlencoded({extended : true}));
 app.use(express.json());
 app.use('/images',express.static(__dirname + 'images'));
@@ -9,7 +9,7 @@ app.use('/images',express.static(__dirname + 'images'));
 
 
 const dataPath = './data/dinos.json';
-
+app.use(cors());
 app.get('/', (req,res) => {
         res.status(200).send('Welcome to dino app');
 });
