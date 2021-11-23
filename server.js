@@ -86,6 +86,6 @@ app.post('/api/login', (req,res) => {
     res.status(401).send("user not authenticated");
 })
 
-const server = app.listen(4000 , () => {
-    console.log('listining on port %s ....', server.address().port);
+app.listen(process.env.PORT || 3000, function(){
+    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
